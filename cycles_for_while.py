@@ -1,3 +1,69 @@
+# Дано натуральное число. Напишите программу, которая определяет, является ли последовательность его цифр при просмотре справа налево упорядоченной по неубыванию.
+n = int(input())
+last_number = n % 10
+sequence = True
+while n > 0:
+    last_digit = n % 10
+    if last_digit < last_number:
+        sequence = False
+    else:
+        last_number = last_digit
+    n = n // 10
+if sequence == True:
+    print('YES')
+else:
+    print('NO')
+
+
+
+# Дано натуральное число. Напишите программу, которая определяет, состоит ли указанное число из одинаковых цифр.
+n = int(input()) # вариант решения без цикла
+if max(str(n)) == min(str(n)): 
+    print('YES')
+else:
+    print('NO')
+
+n = int(input()) # вариант решения с циклом и флагом
+last_number = n % 10
+equality = True
+while n > 0:
+    if last_number != n % 10:
+        equality = False
+    n = n // 10
+if equality == True:
+    print('YES')
+else:
+    print('NO')
+
+# Дано натуральное число n (n>9). Напишите программу, которая определяет его вторую (с начала) цифру.
+n = int(input())
+while n > 10:
+    second_number = n % 10
+    n = n // 10
+print(second_number)
+
+# Дано натуральное число. Напишите программу, которая вычисляет:
+# сумму его цифр;
+# количество цифр в нем;
+# произведение его цифр;
+# среднее арифметическое его цифр;
+# его первую цифру;
+# сумму его первой и последней цифры.
+n = int(input())
+summ = 0
+counter = 0
+product = 1
+last_number = n % 10
+while n > 0:
+    last_digit = n % 10
+    summ += last_digit
+    counter += 1
+    product *= last_digit
+    n = n // 10
+print(summ, counter, product, summ / counter, last_digit, last_digit + last_number, sep = '\n')
+
+
+
 # определение макс и мин цифры в введенном числе
 n = int(input())
 maximum = max(str(n))
